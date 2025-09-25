@@ -105,19 +105,24 @@
 ## 📚 Further Reading
 
 ### Cognitive Science
-- [Cognitive Load Theory](https://en.wikipedia.org/wiki/Cognitive_load) - Understanding mental effort
-- [Flow State Research](https://en.wikipedia.org/wiki/Flow_(psychology)) - Optimal performance states
-- [Dual Process Theory](https://en.wikipedia.org/wiki/Dual_process_theory) - System 1 vs System 2 thinking
+- [Cognitive Load Theory — Sweller (1988), Cognitive Science](https://onlinelibrary.wiley.com/doi/abs/10.1207/s15516709cog1202_4) - Foundational paper on cognitive load in learning
+- [Flow — Nakamura & Csikszentmihalyi (2014), Annual Review of Psychology](https://doi.org/10.1146/annurev-psych-010213-115151) - Authoritative review of flow research
+- [Dual-Process Theory — Stanovich & West (2000), Behavioral and Brain Sciences](https://doi.org/10.1017/S0140525X00003435) - Classic paper on dual-process reasoning
 
 ### Human-Computer Interaction
 - [Human-AI Collaboration](https://hci.stanford.edu/) - Stanford HCI research
-- [Trust in Automation](https://www.nist.gov/) - NIST research on automation trust
-- [Cognitive Ergonomics](https://www.iea.cc/) - International Ergonomics Association
+- [Cognitive Ergonomics](https://iea.cc/what-is-ergonomics/) - International Ergonomics Association (definition includes cognitive ergonomics)
+
+### Trust in AI and Automation (NIST)
+- [NIST AI Risk Management Framework 1.0](https://www.nist.gov/itl/ai-risk-management-framework) - Official framework for managing AI risks and trustworthiness
+- [NISTIR 8312 — Four Principles of Explainable AI](https://doi.org/10.6028/NIST.IR.8312) - Guidance on explainability to support appropriate trust
 
 ### Software Engineering Psychology
 - [Psychology of Programming](https://www.ppig.org/) - Psychology of Programming Interest Group
-- [Cognitive Dimensions of Notations](https://en.wikipedia.org/wiki/Cognitive_dimensions_of_notations) - Framework for evaluating programming languages
-- [Programmer Behavior Studies](https://www.acm.org/) - ACM research on developer behavior
+- [Cognitive Dimensions of Notations](https://dl.acm.org/doi/10.1145/66938.66941) - Original framework by Green (1989), ACM link
+- [Studying Programmer Behavior Experimentally — CACM](https://cacm.acm.org/research/studying-programmer-behavior-experimentally/) - Methodological foundations for programmer studies
+- [What’s (Not) Working in Programmer User Studies? — ACM](https://dl.acm.org/doi/10.1145/3587157) - Guidance and pitfalls in programmer user studies
+- [Fifty Years of the Psychology of Programming — IJHCS](https://doi.org/10.1016/j.ijhcs.2019.06.009) - Comprehensive review of the field
 
 ---
 
