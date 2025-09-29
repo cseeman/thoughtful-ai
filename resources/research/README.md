@@ -2,6 +2,10 @@
 
 *Research backing for the psychological considerations in thoughtful AI usage*
 
+## NIST framework for explainable AI
+
+- [Integrating NIST's Four Principles of Explainable AI](nist_explainable_ai_integration.md)
+
 ## 🧠 Context Switching Research
 
 ### The Cognitive Cost of Task Switching
