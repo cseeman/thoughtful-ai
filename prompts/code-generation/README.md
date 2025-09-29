@@ -333,6 +333,19 @@ Requirements:
 4. **Iterate**: Use follow-up prompts to refine the output
 5. **Validate**: Always review generated code for Ruby idiomaticity
 
+## 🔬 Research-Based Techniques
+
+For advanced prompt engineering strategies backed by 2024-2025 research, see:
+
+**[Research-Based Prompting Techniques](./research-based-techniques.md)**
+
+This guide includes:
+- 10 research-backed prompting techniques (chain-of-thought, few-shot learning, constraint-based, etc.)
+- Ruby-specific examples for each technique
+- Citations from authoritative sources (OpenAI, Prompt Engineering Guide, Rails community)
+- "Why this works" explanations with research rationale
+- Key takeaways for Ruby developers
+
 ## 🔗 Related Resources
 
 - [Ruby Style Guide](https://rubystyle.guide/)
