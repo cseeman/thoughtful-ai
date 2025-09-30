@@ -77,6 +77,12 @@
 - Ruby-specific prompting strategies
 - [Read Article](https://blog.lewagon.com/skills/effective-ai-prompts-for-a-software-developer/)
 
+**I Made a Keychain** by Avdi Grimm
+- Mentions Naught: http://github.com/avdi/naught
+- Talks about learning new things, and sometimes getting them wrong.
+- Ivar, https://github.com/avdi/ivar, may not be what he intended but was a good learning experience.
+- [Read Blog](https://avdi.codes/keychain/)
+
 ---
 
 ## 🧠 Scientific Research
