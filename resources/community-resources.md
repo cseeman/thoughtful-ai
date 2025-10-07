@@ -106,6 +106,20 @@ Discusses learning new things and getting them wrong. Mentions using LLM assista
 
 ## Research & Studies
 
+### AI Ethics and Governance
+
+**NIST Four Principles of Explainable AI**
+Framework for explainable AI with principles for Explanation, Meaningful explanations, Explanation Accuracy, and Knowledge Limits. Comprehensive guide for Ruby engineers working with AI coding tools.
+[Read Full Document](research/nist_explainable_ai_integration.md)
+
+**Organizational AI Frameworks and Community Guidelines**
+Comprehensive compilation of major organizational frameworks, standards, and community guidelines for responsible AI development. Includes frameworks from Linux Foundation, Mozilla, ACM/IEEE, Microsoft, Google, IBM, UNESCO, and more. Addresses governance structures, ethical trade-offs, and practical implementation approaches.
+[Read Full Document](research/organizational_ai_frameworks.md)
+
+**"Resolving Ethics Trade-offs in Implementing Responsible AI"** - ArXiv (2024)
+Framework for addressing tensions between AI ethics principles. Identifies theory-practice gap and provides five approaches to ethical trade-offs. Emphasizes that no one-size-fits-all solution exists.
+[Research Paper](https://arxiv.org/abs/2401.08103)
+
 ### Context Switching
 
 **"The 'switch cost' of multitasking"** - Wake Forest University (2024)
@@ -223,11 +237,35 @@ Curated list of AI tools and prompt examples.
 
 ---
 
+## AI Insights from Rocky Mountain Ruby 2025 Speakers
+
+Additional AI-focused resources and tools from conference speakers.
+
+### Scott Werner - Sublayer Framework
+
+**Sublayer: AI Agent Framework for Ruby**
+Model-agnostic Ruby framework for building AI-powered applications. Self-assembling architecture with base classes for Generators, Actions, Tasks, and Agents.
+[Documentation](https://docs.sublayer.com/) | [GitHub](https://github.com/sublayerapp/sublayer)
+
+**Works on My Machine Newsletter**
+"The System Inside the System" explores AI agent frameworks and self-assembling code architecture.
+[Read Newsletter](https://worksonmymachine.ai/)
+
+**The Ruby AI Podcast**
+Episode on building AI agents in Ruby, model-agnostic design, and Sublayer's architecture.
+[Listen: Sublayer and Artificial Ruby](https://www.therubyaipodcast.com/2388930/episodes/17266773-sublayer-and-artificial-ruby-with-scott-werner)
+
+**We Were Voyagers - Rocky Mountain Ruby Talk**
+Scott's talk explores how AI represents a new wilderness for Ruby developers, with every assumption about programming up for grabs. He argues Ruby is uniquely positioned for AI because "DSLs are basically prompts already" and Ruby never forgot how to play. The presentation itself was built with Monkeys Paw, a prompt-based web framework he created with Claude. His closing message: "Write code that makes you giggle. Create tools that shouldn't exist. The voyage never ended."
+[Talk Slides](https://github.com/sublayerapp/rockymountainruby-we-were-voyagers/tree/main/wishes)
+
+---
+
 ## About This Talk
 
 **Talk**: Thoughtful AI for the Rubyist
 **Speaker**: Christine Seeman
-**Event**: WNB.rb September Online Meetup, Rocky Mountain Ruby
+**Event**: WNB.rb September Online Meetup, Rocky Mountain Ruby 2025
 
 This resource list was created to support Ruby developers exploring AI tools thoughtfully while maintaining Ruby's human-centered philosophy.
 
