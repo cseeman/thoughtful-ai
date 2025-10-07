@@ -1,475 +1,44 @@
 # Testing Prompts
 
-*AI prompts for generating comprehensive Ruby and Rails tests with RSpec*
+AI prompts for generating Ruby and Rails tests with RSpec.
 
-## 🎯 Overview
+## Overview
 
-Testing with AI requires careful prompting to ensure comprehensive coverage, proper test structure, and Ruby testing best practices. These prompts help you generate tests that are maintainable, readable, and effective.
+Testing is a top AI use case for Ruby developers, but it needs the right context. Specify your framework versions, available gems, and routing conventions to avoid common pitfalls.
 
-## 📋 Best Practices
+## Quick Tips
 
-- **Specify testing framework**: Always mention RSpec, Minitest, etc.
-- **Include edge cases**: Request tests for boundary conditions
-- **Mock external dependencies**: Specify what should be mocked
-- **Follow testing conventions**: Use proper describe/context/it structure
-- **Request explanations**: Ask AI to explain test strategy
+- Specify testing framework and versions ("RSpec 3.12", "FactoryBot 6.4")
+- List available tools (shoulda-matchers, VCR, FactoryBot)
+- Mention routing conventions (Rails 7 uses full path helpers)
+- Request edge cases explicitly
+- Indicate dependencies to mock
 
-## 🚀 Prompt Templates
+## What Works and What Doesn't
 
-### RSpec Test Generation
+Based on community feedback and experience.
 
-**Basic Model Tests:**
-```
-Generate comprehensive RSpec tests for this Ruby model:
+### Example 1: Basic Method Tests
 
-[Paste model code here]
-
-Requirements:
-- Follow RSpec conventions and Ruby Style Guide
-- Test all validations
-- Test all associations
-- Test all public methods
-- Include edge cases and error scenarios
-- Use descriptive test names
-- Add proper setup and teardown
-- Include YARD documentation for test methods
-
-Context: [describe the model's purpose and business logic]
-Testing Framework: RSpec
-```
-
-**Complex Model Tests:**
-```
-Generate comprehensive RSpec tests for this complex Ruby model:
-
-[Paste model code here]
-
-Model Features:
-- [feature 1]
-- [feature 2]
-- [feature 3]
-
-Business Rules:
-- [rule 1]
-- [rule 2]
-- [rule 3]
-
-Requirements:
-- Follow RSpec conventions and Ruby Style Guide
-- Test all validations and custom validators
-- Test all associations and dependent options
-- Test all callbacks and their effects
-- Test all scopes and class methods
-- Test all instance methods
-- Include edge cases and error scenarios
-- Test performance considerations
-- Use factories for test data
-- Add proper setup and teardown
-- Include YARD documentation
-
-Context: [describe the model's purpose and business logic]
-Testing Framework: RSpec
-Factory: [specify factory library if used]
-```
-
-### Controller Tests
-
-**RESTful Controller Tests:**
-```
-Generate comprehensive RSpec controller tests for this Rails controller:
-
-[Paste controller code here]
-
-Controller Actions:
-- [list all actions]
-
-Authentication: [specify authentication requirements]
-Authorization: [specify authorization rules]
-
-Requirements:
-- Follow RSpec conventions and Ruby Style Guide
-- Test all controller actions
-- Test authentication and authorization
-- Test parameter handling
-- Test response formats and status codes
-- Test error handling
-- Test flash messages
-- Include edge cases and error scenarios
-- Use proper test data setup
-- Add YARD documentation
-
-Context: [describe the controller's purpose and business logic]
-Testing Framework: RSpec
-Authentication: [specify authentication method]
-```
-
-**API Controller Tests:**
-```
-Generate comprehensive RSpec tests for this Rails API controller:
-
-[Paste API controller code here]
-
-API Endpoints:
-- [list all endpoints]
-
-Authentication: [specify authentication method]
-Response Format: JSON
-
-Requirements:
-- Follow RSpec conventions and Ruby Style Guide
-- Test all API endpoints
-- Test request/response formats
-- Test HTTP status codes
-- Test error responses
-- Test authentication and authorization
-- Test parameter validation
-- Include edge cases and error scenarios
-- Test pagination if applicable
-- Use proper test data setup
-- Add YARD documentation
-
-Context: [describe the API's purpose and business logic]
-Testing Framework: RSpec
-Authentication: [specify authentication method]
-```
-
-### Service Object Tests
-
-**Basic Service Tests:**
-```
-Generate comprehensive RSpec tests for this Ruby service object:
-
-[Paste service code here]
-
-Service Purpose: [describe what the service does]
-Input: [describe input parameters]
-Output: [describe expected output]
-
-Requirements:
-- Follow RSpec conventions and Ruby Style Guide
-- Test successful execution
-- Test error scenarios
-- Test input validation
-- Test output format
-- Test side effects
-- Include edge cases
-- Mock external dependencies
-- Use descriptive test names
-- Add YARD documentation
-
-Context: [describe the service's purpose and business logic]
-Testing Framework: RSpec
-Dependencies: [list external dependencies to mock]
-```
-
-**Complex Service Tests:**
-```
-Generate comprehensive RSpec tests for this complex Ruby service object:
-
-[Paste service code here]
-
-Service Purpose: [describe what the service does]
-Dependencies: [list all dependencies]
-Input: [describe input parameters]
-Output: [describe expected output]
-
-Business Logic:
-- [step 1]
-- [step 2]
-- [step 3]
-
-Requirements:
-- Follow RSpec conventions and Ruby Style Guide
-- Test successful execution path
-- Test all error scenarios
-- Test input validation
-- Test output format
-- Test side effects
-- Test dependency interactions
-- Include edge cases and boundary conditions
-- Mock all external dependencies
-- Test performance considerations
-- Use descriptive test names
-- Add YARD documentation
-
-Context: [describe the service's purpose and business logic]
-Testing Framework: RSpec
-Dependencies: [list external dependencies to mock]
-```
-
-### Integration Tests
-
-**Feature Tests:**
-```
-Generate comprehensive RSpec feature tests for this user workflow:
-
-[Describe the user workflow]
-
-Workflow Steps:
-- [step 1]
-- [step 2]
-- [step 3]
-
-User Roles: [specify user roles involved]
-Authentication: [specify authentication requirements]
-
-Requirements:
-- Follow RSpec conventions and Ruby Style Guide
-- Test complete user workflow
-- Test different user roles
-- Test error scenarios
-- Test edge cases
-- Use proper test data setup
-- Include accessibility considerations
-- Add YARD documentation
-
-Context: [describe the feature's purpose and business logic]
-Testing Framework: RSpec
-Browser: [specify browser testing tool if used]
-```
-
-**System Tests:**
-```
-Generate comprehensive RSpec system tests for this application feature:
-
-[Describe the application feature]
-
-Feature Components:
-- [component 1]
-- [component 2]
-- [component 3]
-
-User Journey: [describe the user journey]
-
-Requirements:
-- Follow RSpec conventions and Ruby Style Guide
-- Test complete user journey
-- Test different scenarios
-- Test error handling
-- Test edge cases
-- Use proper test data setup
-- Include performance considerations
-- Add YARD documentation
-
-Context: [describe the feature's purpose and business logic]
-Testing Framework: RSpec
-Browser: [specify browser testing tool]
-```
-
-## 🔧 Specific Testing Scenarios
-
-### Edge Case Testing
-
-**Boundary Condition Tests:**
-```
-Generate RSpec tests for boundary conditions and edge cases for this Ruby code:
-
-[Paste code here]
-
-Boundary Conditions:
-- [condition 1]
-- [condition 2]
-- [condition 3]
-
-Edge Cases:
-- [case 1]
-- [case 2]
-- [case 3]
-
-Requirements:
-- Follow RSpec conventions and Ruby Style Guide
-- Test all boundary conditions
-- Test all edge cases
-- Test error scenarios
-- Test performance limits
-- Use descriptive test names
-- Add YARD documentation
-
-Context: [describe the code's purpose and business logic]
-Testing Framework: RSpec
-```
-
-### Performance Testing
-
-**Performance Test Generation:**
-```
-Generate RSpec performance tests for this Ruby code:
-
-[Paste code here]
-
-Performance Requirements:
-- [requirement 1]
-- [requirement 2]
-
-Load Scenarios:
-- [scenario 1]
-- [scenario 2]
-
-Requirements:
-- Follow RSpec conventions and Ruby Style Guide
-- Test performance under load
-- Test memory usage
-- Test response times
-- Include benchmarking
-- Test scalability
-- Add YARD documentation
-
-Context: [describe the code's purpose and performance requirements]
-Testing Framework: RSpec
-```
-
-### Security Testing
-
-**Security Test Generation:**
-```
-Generate RSpec security tests for this Ruby code:
-
-[Paste code here]
-
-Security Concerns:
-- [concern 1]
-- [concern 2]
-
-Attack Vectors:
-- [vector 1]
-- [vector 2]
-
-Requirements:
-- Follow RSpec conventions and Ruby Style Guide
-- Test input validation
-- Test authorization
-- Test data sanitization
-- Test SQL injection prevention
-- Test XSS prevention
-- Add YARD documentation
-
-Context: [describe the code's purpose and security requirements]
-Testing Framework: RSpec
-```
-
-## 🎨 Test Organization
-
-### Test Structure
-
-**Well-Organized Test Suite:**
-```
-Generate a well-organized RSpec test suite for this Ruby class:
-
-[Paste class code here]
-
-Test Organization:
-- Group related tests
-- Use descriptive describe/context blocks
-- Include proper setup and teardown
-- Use shared examples where appropriate
-
-Requirements:
-- Follow RSpec conventions and Ruby Style Guide
-- Organize tests logically
-- Use descriptive test names
-- Include proper setup and teardown
-- Use shared examples for common patterns
-- Add YARD documentation
-
-Context: [describe the class's purpose and business logic]
-Testing Framework: RSpec
-```
-
-### Shared Examples
-
-**Shared Example Generation:**
-```
-Generate RSpec shared examples for this common pattern:
-
-[Describe the common pattern]
-
-Pattern Usage:
-- [usage 1]
-- [usage 2]
-- [usage 3]
-
-Requirements:
-- Follow RSpec conventions and Ruby Style Guide
-- Create reusable shared examples
-- Include proper parameterization
-- Add comprehensive documentation
-- Make it easily testable
-
-Context: [describe the pattern's purpose and usage]
-Testing Framework: RSpec
-```
-
-## 🔍 Test Quality Assurance
-
-### Test Coverage
-
-**Comprehensive Test Coverage:**
-```
-Generate tests with comprehensive coverage for this Ruby code:
-
-[Paste code here]
-
-Coverage Requirements:
-- 100% line coverage
-- 100% branch coverage
-- All edge cases
-- All error scenarios
-
-Requirements:
-- Follow RSpec conventions and Ruby Style Guide
-- Achieve comprehensive coverage
-- Test all code paths
-- Include edge cases
-- Test error scenarios
-- Add YARD documentation
-
-Context: [describe the code's purpose and business logic]
-Testing Framework: RSpec
-```
-
-### Test Maintainability
-
-**Maintainable Test Suite:**
-```
-Generate maintainable RSpec tests for this Ruby code:
-
-[Paste code here]
-
-Maintainability Requirements:
-- Easy to understand
-- Easy to modify
-- Well-documented
-- Properly organized
-
-Requirements:
-- Follow RSpec conventions and Ruby Style Guide
-- Create maintainable tests
-- Use descriptive names
-- Include comprehensive documentation
-- Organize logically
-- Add YARD documentation
-
-Context: [describe the code's purpose and business logic]
-Testing Framework: RSpec
-```
-
-## 📝 Example Testing Prompts
-
-### Before (Ineffective)
+**❌ No Context**
 ```
 Write tests for this method
 ```
 
-### After (Effective)
+Why it fails: No framework specified, no context, no available tools mentioned. Testing is a top use case for AI, but needs complete context.
+
+**✅ Complete Context**
 ```
-Generate comprehensive RSpec tests for this Ruby method:
+Context: Rails 7.1, RSpec 3.12, FactoryBot 6.4
+
+Generate comprehensive RSpec tests for this method:
 
 ```ruby
 def calculate_discount(price, discount_percentage, user_type)
   return 0 if price <= 0 || discount_percentage <= 0
-  
+
   base_discount = price * (discount_percentage / 100.0)
-  
+
   case user_type
   when 'premium'
     base_discount * 1.2
@@ -482,34 +51,358 @@ end
 ```
 
 Requirements:
-- Follow RSpec conventions and Ruby Style Guide
-- Test all code paths
-- Test edge cases (zero/negative values)
-- Test different user types
-- Test error scenarios
-- Use descriptive test names
-- Add YARD documentation
+- Follow RSpec conventions
+- Test all code paths (all user types)
+- Test edge cases (zero/negative values, nil inputs, boundary conditions)
+- Test float precision (currency calculations)
+- Use descriptive describe/context/it structure
 
-Context: This method calculates discounts for e-commerce orders based on price, discount percentage, and user type. Premium and VIP users get additional multipliers.
-Testing Framework: RSpec
+Context: E-commerce discount calculator. Premium users get 1.2x, VIP users get 1.5x.
 ```
 
-## 🎯 Pro Tips
+Why it works: Exact versions, actual code shown, edge cases specified, business context provided.
 
-1. **Be Specific**: Include all requirements and constraints
-2. **Request Edge Cases**: Always ask for boundary condition tests
-3. **Mock Dependencies**: Specify what should be mocked
-4. **Validate Output**: Review generated tests for completeness
-5. **Iterate**: Use follow-up prompts to add missing test cases
+Result (partial):
+```ruby
+RSpec.describe '#calculate_discount' do
+  describe 'with valid inputs' do
+    context 'when user_type is standard' do
+      it 'returns base discount' do
+        expect(calculate_discount(100, 10, 'standard')).to eq(10.0)
+      end
+    end
 
-## 🔗 Related Resources
+    context 'when user_type is premium' do
+      it 'returns 1.2x multiplier' do
+        expect(calculate_discount(100, 10, 'premium')).to eq(12.0)
+      end
+    end
+  end
+
+  describe 'edge cases' do
+    it 'returns 0 for negative price' do
+      expect(calculate_discount(-100, 10, 'standard')).to eq(0)
+    end
+  end
+end
+```
+
+### Example 2: Controller Tests (Routing Pitfall)
+
+**❌ No Routing Conventions**
+```
+Generate controller tests for UsersController
+```
+
+Why it fails: Common AI mistake - uses outdated syntax like `get :index` or `get :create`. No authentication context.
+
+**✅ Routing Conventions Specified**
+```
+Context: Rails 7.1, RSpec 3.12, Devise authentication
+
+Generate RSpec controller tests for UsersController#index and #create.
+
+IMPORTANT routing conventions:
+- Use full path helpers: users_path, NOT get :index
+- Use HTTP verb methods: get users_path, NOT get :index
+- This is a Rails 7 application
+
+Controller code:
+```ruby
+class UsersController < ApplicationController
+  before_action :authenticate_user!
+
+  def index
+    @users = User.where.not(confirmed_at: nil).order(created_at: :desc)
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to users_path, notice: 'User created'
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :name)
+  end
+end
+```
+
+Requirements:
+- Use FactoryBot (assume :user factory exists)
+- Test authentication (signed in vs signed out)
+- Test successful and failure paths
+- Test flash messages and redirects
+- Use full path helpers (users_path, new_user_path)
+```
+
+Why it works: Explicit routing syntax prevents AI's common mistake. Shows actual controller, lists test scenarios.
+
+Community quote: "For controller tests, I always specify: 'Use full routes like api_v1_birds_path, not get :create'"
+
+### Example 3: Model Tests with shoulda-matchers
+
+**✅ Tool-Specific**
+```
+Context: Rails 7.1, RSpec 3.12, shoulda-matchers 5.3, FactoryBot 6.4
+
+Generate RSpec tests for this User model:
+
+```ruby
+class User < ApplicationRecord
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :nullify
+
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :name, presence: true, length: { minimum: 2, maximum: 100 }
+  validates :age, numericality: { greater_than_or_equal_to: 13 }, allow_nil: true
+
+  scope :confirmed, -> { where.not(confirmed_at: nil) }
+  scope :recent, ->(days = 7) { where('created_at >= ?', days.days.ago) }
+
+  def full_name
+    "#{first_name} #{last_name}".strip
+  end
+
+  def confirmed?
+    confirmed_at.present?
+  end
+end
+```
+
+Requirements:
+- Use shoulda-matchers for validations and associations
+- Use FactoryBot (assume :user factory exists)
+- Test all validations, associations, scopes, and methods
+- Test edge cases for custom methods
+- Follow RSpec best practices (one assertion per test where possible)
+```
+
+Why it works: Specifies shoulda-matchers for concise validation tests. Lists all test areas. Tool-specific instructions reduce verbosity significantly.
+
+Result (partial):
+```ruby
+RSpec.describe User, type: :model do
+  describe 'associations' do
+    it { is_expected.to have_many(:posts).dependent(:destroy) }
+    it { is_expected.to have_many(:comments).dependent(:nullify) }
+  end
+
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:email) }
+    it { is_expected.to validate_uniqueness_of(:email) }
+    it { is_expected.to validate_length_of(:name).is_at_least(2).is_at_most(100) }
+  end
+
+  describe 'scopes' do
+    describe '.confirmed' do
+      let!(:confirmed_user) { create(:user, confirmed_at: Time.current) }
+      let!(:unconfirmed_user) { create(:user, confirmed_at: nil) }
+
+      it 'returns only confirmed users' do
+        expect(User.confirmed).to include(confirmed_user)
+        expect(User.confirmed).not_to include(unconfirmed_user)
+      end
+    end
+  end
+
+  describe '#full_name' do
+    context 'with trailing spaces' do
+      let(:user) { build(:user, first_name: 'Jane ', last_name: ' Doe') }
+
+      it 'strips whitespace' do
+        expect(user.full_name).to eq('Jane Doe')
+      end
+    end
+  end
+end
+```
+
+### Example 4: Service Object with Mocking
+
+**❌ Missing Dependency Info**
+```
+Test this service object
+```
+
+Why it fails: No dependency information, missing expected behavior, no failure scenarios, doesn't indicate Result pattern.
+
+**✅ Dependencies Specified**
+```
+Context: Rails 7.1, RSpec 3.12, dry-monads Result pattern
+
+Generate RSpec tests for this service object:
+
+```ruby
+class UserRegistrationService
+  def initialize(params, mailer: UserMailer)
+    @params = params
+    @mailer = mailer
+  end
+
+  def call
+    user = User.new(@params)
+
+    if user.save
+      @mailer.welcome_email(user).deliver_later
+      Success(user)
+    else
+      Failure(user.errors)
+    end
+  end
+end
+```
+
+Requirements:
+- Use RSpec mocks/stubs for UserMailer
+- Test both Success and Failure paths
+- Verify mailer is called on success
+- Verify mailer is NOT called on failure
+- Test that user is saved correctly
+- Use let blocks for setup
+
+Dependencies to mock:
+- UserMailer.welcome_email (should return mock with deliver_later)
+
+Assume FactoryBot :user factory exists.
+```
+
+Why it works: Shows full service code, specifies dry-monads, lists dependencies, both paths specified.
+
+Result (partial):
+```ruby
+RSpec.describe UserRegistrationService do
+  let(:mailer_double) { double('mailer', deliver_later: true) }
+  let(:mailer_class) { class_double(UserMailer, welcome_email: mailer_double) }
+  let(:valid_params) { attributes_for(:user) }
+  let(:service) { described_class.new(valid_params, mailer: mailer_class) }
+
+  describe '#call' do
+    context 'with valid parameters' do
+      it 'creates a user' do
+        expect { service.call }.to change(User, :count).by(1)
+      end
+
+      it 'sends welcome email' do
+        service.call
+        expect(mailer_class).to have_received(:welcome_email)
+      end
+
+      it 'returns Success with user' do
+        result = service.call
+        expect(result).to be_success
+        expect(result.value!).to be_a(User)
+      end
+    end
+
+    context 'with invalid parameters' do
+      let(:invalid_params) { { email: nil } }
+      let(:service) { described_class.new(invalid_params, mailer: mailer_class) }
+
+      it 'does not send email' do
+        service.call
+        expect(mailer_class).not_to have_received(:welcome_email)
+      end
+
+      it 'returns Failure with errors' do
+        result = service.call
+        expect(result).to be_failure
+      end
+    end
+  end
+end
+```
+
+## Community Insights
+
+### What Works
+- Basic RSpec tests - Model validations, associations with shoulda-matchers
+- Happy path scenarios - AI generates good success case tests
+- Standard Rails patterns - Controller CRUD tests with proper authentication
+
+### Common Pitfalls
+- **Outdated routing syntax** - AI uses `get :index` instead of `get users_path`
+- **Missing edge cases** - AI focuses on happy paths, forgets boundary conditions
+- **Insufficient mocking** - External dependencies not properly stubbed
+- **Generic test names** - Non-descriptive "it works" style tests
+
+### Pro Tips
+
+> "Always specify: 'use shoulda_matchers and assume FactoryBot factories exist'"
+
+> "For routing, be explicit: 'use full path helpers like users_path, not controller action shortcuts'"
+
+> "Request edge cases explicitly - AI won't think of them on its own"
+
+> "Specify your Result pattern (dry-monads, custom) so AI knows return types"
+
+Key takeaway: Testing is a strong use case for AI, but requires context - specify framework versions, available gems, routing conventions, dependencies to mock, and edge cases to cover.
+
+## Prompt Templates
+
+### Model Tests
+```
+Context: Rails [version], RSpec [version], shoulda-matchers [version], FactoryBot [version]
+
+Generate RSpec tests for [Model]:
+
+[Model code]
+
+Requirements:
+- Use shoulda-matchers for validations/associations
+- Use FactoryBot (assume factory exists)
+- Test all validations, associations, scopes, methods
+- Test edge cases
+- Follow RSpec best practices
+```
+
+### Controller Tests
+```
+Context: Rails [version], RSpec [version], [Auth framework]
+
+Generate RSpec controller tests for [Controller]#[actions].
+
+IMPORTANT: Use full path helpers (users_path), not shortcuts
+
+[Controller code]
+
+Requirements:
+- Test authentication (signed in vs out)
+- Test success and failure paths
+- Test flash messages and redirects
+- Use FactoryBot
+```
+
+### Service Object Tests
+```
+Context: Rails [version], RSpec [version], [Result pattern if applicable]
+
+Generate RSpec tests for [Service]:
+
+[Service code]
+
+Requirements:
+- Test Success and Failure paths
+- Mock external dependencies
+- Verify side effects
+- Use let blocks
+
+Dependencies to mock:
+- [List dependencies]
+```
+
+## Related Resources
 
 - [RSpec Documentation](https://rspec.info/)
 - [Rails Testing Guide](https://guides.rubyonrails.org/testing.html)
-- [Ruby Style Guide](https://rubystyle.guide/)
-- [Factory Bot](https://github.com/thoughtbot/factory_bot)
-- [VCR](https://github.com/vcr/vcr) - HTTP interaction recording
+- [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
+- [FactoryBot](https://github.com/thoughtbot/factory_bot)
 
 ---
 
-*Remember: Good tests are readable, maintainable, and comprehensive. AI can help generate them, but you should always review and validate!* 💎
+Good tests are readable, maintainable, and comprehensive. AI can help generate them - always review and validate.

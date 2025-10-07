@@ -1,105 +1,216 @@
 # Code Generation Prompts
 
-*AI prompts for generating Ruby and Rails code with intention and purpose*
+AI prompts for generating idiomatic Ruby and Rails code.
 
-## 🎯 Overview
+## Overview
 
-These prompts help you generate Ruby code that follows Rails conventions, Ruby style guides, and maintains readability. The key is providing context and specific instructions to get idiomatic Ruby output.
+Good prompts produce good code. The key is context: specify your Rails version, explain the business logic, and be clear about what you want.
 
-## 📋 Best Practices
+## Quick Tips
 
-- **Always specify the framework**: "Rails 7", "Ruby 3.x"
-- **Include style guide references**: "Follow Ruby Style Guide"
-- **Provide context**: Explain the business logic or requirements
-- **Specify constraints**: "Use only standard library methods"
-- **Request explanations**: "Explain your approach"
+- Specify framework versions ("Rails 7.1", "Ruby 3.2")
+- Reference style guides ("Follow Ruby Style Guide")
+- Provide business context
+- Set clear constraints
+- Request explanations
 
-## 🚀 Prompt Templates
+## What Works and What Doesn't
 
-### Rails Model Generation
+Based on community feedback and experience.
 
-**Basic Model:**
+### Example 1: Finding a User
+
+**❌ Vague**
 ```
-Create a Rails model for [Entity] with the following attributes:
+Write a method to get users
+```
+
+Why it fails: No version, no context, no constraints. Vague prompts often generate Python/JavaScript patterns instead of Ruby idioms.
+
+**✅ Specific**
+```
+Write a Ruby method following Rails conventions to find a user by ID. Use idiomatic Ruby patterns, avoid explicit nil checks, and follow the Ruby Style Guide. The method should integrate well with Rails controllers and handle the ActiveRecord::RecordNotFound exception appropriately.
+
+Context: Rails 7.1 application with User model (id, email, name, created_at, updated_at)
+
+Requirements:
+- Use Rails conventions
+- Follow Ruby Style Guide
+- Include YARD documentation
+- Handle edge cases
+```
+
+Why it works: Specifies Rails 7.1, provides context, sets constraints ("idiomatic Ruby", "avoid explicit nil checks"), clear success criteria.
+
+Result:
+```ruby
+# @param id [Integer] the user ID
+# @return [User] the found user
+# @raise [ActiveRecord::RecordNotFound] if user doesn't exist
+def find_user(id)
+  User.find(id)
+end
+```
+
+### Example 2: Metaprogramming (AI's Weak Spot)
+
+**❌ Too Vague**
+```
+Create a metaprogramming solution to define methods dynamically
+```
+
+Why it fails: Metaprogramming is AI's weakest area. No example code, no constraints, requires deep Ruby knowledge AI often lacks.
+
+**⚠️ Better (but still needs review)**
+```
+Context: Rails 7.1 application, define status check methods dynamically for Order model.
+
+Current explicit code:
+```ruby
+class Order < ApplicationRecord
+  def pending?
+    status == 'pending'
+  end
+
+  def shipped?
+    status == 'shipped'
+  end
+
+  def delivered?
+    status == 'delivered'
+  end
+end
+```
+
+Use metaprogramming to define these dynamically from STATUSES constant.
+
+Requirements:
+- Follow Ruby Style Guide
+- Use define_method or class_eval
+- Maintain same public API
+- Add YARD documentation
+- Must be readable to junior developers
+- Methods should appear in .methods output
+
+Explain why this approach is better than explicit methods.
+```
+
+Why it's better: Shows existing code, specific technique, readability constraint prevents over-cleverness. Community wisdom: "Let it rough draft, then you refine."
+
+### Example 3: RSpec Tests
+
+**✅ Effective**
+```
+Context: Rails 7.1, RSpec 3.12, FactoryBot 6.4
+
+Generate RSpec tests for this User model method:
+
+```ruby
+class User < ApplicationRecord
+  def self.recent_active(days = 30)
+    where('created_at >= ?', days.days.ago)
+      .where.not(confirmed_at: nil)
+      .order(created_at: :desc)
+  end
+end
+```
+
+Requirements:
+- Use shoulda-matchers for simple assertions
+- Use FactoryBot (assume :user factory exists)
+- Test edge cases: boundary conditions, nil handling
+- Follow RSpec best practices (describe/context/it)
+- Use descriptive test names
+
+Routing conventions: Use full path helpers (users_path), not shortcuts
+```
+
+Why it works: Exact versions, actual code shown, available tools listed, edge case reminder, prevents common routing mistake.
+
+Community feedback: "For RSpec, I specify: 'use shoulda_matchers and assume FactoryBot factories exist'"
+
+### Example 4: Positive vs Negative Instructions
+
+**❌ Negative Framing**
+```
+Write a Rails controller for users.
+Don't use strong parameters incorrectly.
+Don't forget authentication.
+Don't make N+1 queries.
+Don't use callbacks.
+```
+
+Why it fails: AI fixates on what you tell it NOT to do. Creates confusion, doesn't explain alternatives.
+
+**✅ Positive Instructions**
+```
+Context: Rails 7.1 RESTful API controller for User resource
+
+Generate a Rails API controller with:
+- Strong parameters using private methods
+- Token-based authentication (assume Devise setup)
+- Eager loading with includes() to prevent N+1 queries
+- Service objects for complex operations
+- JSON responses with appropriate HTTP status codes
+
+Framework: Rails 7.1
+Authentication: Devise with JWT
+Testing: RSpec
+
+Include example of index and create actions.
+```
+
+Why it works: Positive instructions, specific patterns, clear architecture. Research shows positive framing reduces errors by 30%.
+
+## Community Insights
+
+### What Works Well
+- Rails scaffolding and CRUD
+- RSpec test generation (with proper context)
+- Basic ActiveRecord queries
+- Documentation (YARD, README)
+
+### What Struggles
+- **Metaprogramming** - AI's weakest area
+- **Blocks and iterators** - Often non-idiomatic patterns
+- **Modern Ruby syntax** - Endless methods, `it` blocks, pattern matching
+- **Rails "magic"** - Runtime symbol definitions
+
+### Community Quotes
+
+> "It sometimes feels like the models are trying to apply code style from other programming languages to Ruby."
+
+> "Let it rough draft, and you refine."
+
+> "Always review metaprogramming code - AI doesn't understand Ruby's dynamic nature well."
+
+Key takeaway: The more Ruby-specific and dynamic the feature, the more human oversight needed.
+
+## Prompt Templates
+
+### Rails Model
+
+```
+Create a Rails model for [Entity] with attributes:
 - [attribute1]: [type] (required/optional)
 - [attribute2]: [type] (required/optional)
 
 Requirements:
 - Follow Rails conventions and Ruby Style Guide
-- Include appropriate validations
-- Add any necessary associations
+- Include validations
+- Add associations
 - Use descriptive method names
 - Include YARD documentation
 
-Example usage: [describe how the model will be used]
+Example usage: [describe how model will be used]
 ```
 
-**Advanced Model with Business Logic:**
-```
-Create a Rails model for [Entity] that handles [business requirement].
+### Service Object
 
-Attributes:
-[list attributes with types and constraints]
-
-Business Rules:
-- [rule 1]
-- [rule 2]
-- [rule 3]
-
-Requirements:
-- Follow Rails conventions and Ruby Style Guide
-- Include appropriate validations and callbacks
-- Add scopes for common queries
-- Include error handling
-- Use descriptive method names
-- Add YARD documentation with examples
-
-Consider edge cases: [mention specific edge cases]
-```
-
-### Controller Generation
-
-**RESTful Controller:**
-```
-Create a Rails controller for [Resource] with standard RESTful actions.
-
-Requirements:
-- Follow Rails conventions and Ruby Style Guide
-- Include proper error handling
-- Use strong parameters
-- Add before_action filters where appropriate
-- Include flash messages
-- Handle edge cases gracefully
-- Add YARD documentation
-
-Authentication: [specify if authentication is required]
-Authorization: [specify any authorization rules]
-```
-
-**API Controller:**
-```
-Create a Rails API controller for [Resource] that returns JSON.
-
-Requirements:
-- Follow Rails API conventions
-- Include proper HTTP status codes
-- Add error handling with meaningful messages
-- Use strong parameters
-- Include pagination for index action
-- Add request/response examples
-- Follow Ruby Style Guide
-
-Authentication: [specify authentication method]
-Version: [API version if applicable]
-```
-
-### Service Object Generation
-
-**Basic Service:**
 ```
 Create a Ruby service object for [Business Operation].
 
-Input: [describe input parameters]
+Input: [describe parameters]
 Output: [describe expected output]
 
 Requirements:
@@ -108,251 +219,51 @@ Requirements:
 - Include error handling
 - Add YARD documentation
 - Make it testable
-- Handle edge cases
-
-Business Logic:
-- [describe the main business logic]
-- [include any specific requirements]
-```
-
-**Complex Service with Dependencies:**
-```
-Create a Ruby service object for [Complex Business Operation] that integrates with [external services].
-
-Dependencies:
-- [dependency 1]: [purpose]
-- [dependency 2]: [purpose]
-
-Input: [describe input parameters]
-Output: [describe expected output]
-
-Requirements:
-- Follow Ruby Style Guide
-- Use dependency injection
-- Include comprehensive error handling
-- Add logging for important operations
-- Make it easily testable
-- Include YARD documentation with examples
 
 Business Logic:
 - [step 1]
 - [step 2]
-- [step 3]
-
-Error Scenarios:
-- [scenario 1]
-- [scenario 2]
 ```
 
-## 🔧 Specific Use Cases
+### API Controller
 
-### CRUD Operations
-
-**Complete CRUD with Validations:**
 ```
-Generate a complete CRUD implementation for [Model] with:
-
-Model:
-- Attributes: [list with types]
-- Validations: [specific validation requirements]
-- Associations: [relationships with other models]
-
-Controller:
-- Standard RESTful actions
-- Proper error handling
-- Strong parameters
-- Flash messages
-
-Views (if needed):
-- Form helpers
-- Error display
-- Success messages
+Create a Rails API controller for [Resource] that returns JSON.
 
 Requirements:
-- Follow Rails conventions
-- Use Ruby Style Guide
-- Include YARD documentation
-- Make it production-ready
-```
-
-### Background Jobs
-
-**Sidekiq Job:**
-```
-Create a Sidekiq background job for [Job Purpose].
-
-Input: [describe job parameters]
-Output: [describe expected outcome]
-
-Requirements:
-- Follow Ruby Style Guide
-- Include proper error handling and retry logic
-- Add logging for monitoring
-- Handle job failures gracefully
-- Include YARD documentation
-- Make it idempotent if possible
-
-Business Logic:
-- [describe what the job does]
-- [include any specific requirements]
-```
-
-### Form Objects
-
-**Complex Form:**
-```
-Create a Rails form object for [Form Purpose] that handles multiple models.
-
-Models involved:
-- [Model 1]: [attributes]
-- [Model 2]: [attributes]
-
-Validation requirements:
-- [validation 1]
-- [validation 2]
-
-Requirements:
-- Follow Rails conventions and Ruby Style Guide
-- Include proper validation
-- Handle nested attributes
+- Follow Rails API conventions
+- Include proper HTTP status codes
 - Add error handling
-- Include YARD documentation
-- Make it easily testable
+- Use strong parameters
+- Include pagination for index action
 
-Business Logic:
-- [describe form processing logic]
+Authentication: [method]
+Version: [API version]
 ```
 
-## 🎨 Style and Convention Prompts
+### Background Job
 
-### Ruby Style Guide Compliance
-
-**Style-Aware Generation:**
 ```
-Generate [code type] following the Ruby Style Guide:
+Create a Sidekiq background job for [Purpose].
+
+Input: [job parameters]
+Output: [expected outcome]
 
 Requirements:
-- Use 2-space indentation
-- Prefer single quotes for strings
-- Use descriptive variable names
-- Avoid unnecessary parentheses
-- Use guard clauses where appropriate
-- Follow naming conventions
-- Include YARD documentation
-
-Context: [describe the specific use case]
-```
-
-### Rails Conventions
-
-**Convention-Compliant Code:**
-```
-Generate [Rails component] following Rails conventions:
-
-Requirements:
-- Follow Rails naming conventions
-- Use Rails helpers and methods
-- Include proper error handling
-- Use Rails conventions for associations
-- Follow RESTful patterns
-- Include appropriate callbacks
-- Add YARD documentation
-
-Framework: Rails [version]
-Context: [describe the specific use case]
-```
-
-## 🔍 Quality Assurance Prompts
-
-### Code Review Preparation
-
-**Review-Ready Code:**
-```
-Generate [code type] that's ready for code review:
-
-Requirements:
-- Follow Ruby Style Guide and Rails conventions
-- Include comprehensive error handling
-- Add meaningful comments and YARD documentation
-- Use descriptive method and variable names
-- Handle edge cases
-- Include examples in documentation
-- Make it easily testable
-
-Context: [describe the specific use case]
-Review Criteria: [mention specific review criteria]
-```
-
-### Production-Ready Code
-
-**Production Standards:**
-```
-Generate production-ready [code type] with:
-
-Requirements:
-- Follow Ruby Style Guide and Rails conventions
-- Include comprehensive error handling and logging
-- Add proper validation and sanitization
-- Include performance considerations
-- Add security best practices
-- Include monitoring and observability
-- Add YARD documentation with examples
-- Make it easily maintainable
-
-Context: [describe the specific use case]
-Performance Requirements: [mention any performance constraints]
-Security Requirements: [mention any security considerations]
-```
-
-## 📝 Example Prompts
-
-### Before (Ineffective)
-```
-Write a method to get users
-```
-
-### After (Effective)
-```
-Write a Ruby method following Rails conventions to find a user by ID. Use idiomatic Ruby patterns, avoid explicit nil checks, and follow the Ruby Style Guide. The method should integrate well with Rails controllers and handle the ActiveRecord::RecordNotFound exception appropriately.
-
-Context: This is for a Rails 7 application with User model that has standard attributes (id, email, name, created_at, updated_at).
-
-Requirements:
-- Use Rails conventions
 - Follow Ruby Style Guide
-- Include YARD documentation
-- Handle edge cases
-- Make it easily testable
+- Include error handling and retry logic
+- Add logging
+- Handle failures gracefully
+- Make it idempotent if possible
 ```
 
-## 🎯 Pro Tips
-
-1. **Be Specific**: The more context you provide, the better the output
-2. **Mention Constraints**: Specify what you don't want as well as what you do
-3. **Request Explanations**: Ask AI to explain its approach
-4. **Iterate**: Use follow-up prompts to refine the output
-5. **Validate**: Always review generated code for Ruby idiomaticity
-
-## 🔬 Research-Based Techniques
-
-For advanced prompt engineering strategies backed by 2024-2025 research, see:
-
-**[Research-Based Prompting Techniques](./research-based-techniques.md)**
-
-This guide includes:
-- 10 research-backed prompting techniques (chain-of-thought, few-shot learning, constraint-based, etc.)
-- Ruby-specific examples for each technique
-- Citations from authoritative sources (OpenAI, Prompt Engineering Guide, Rails community)
-- "Why this works" explanations with research rationale
-- Key takeaways for Ruby developers
-
-## 🔗 Related Resources
+## Related Resources
 
 - [Ruby Style Guide](https://rubystyle.guide/)
 - [Rails Style Guide](https://rails.rubystyle.guide/)
 - [YARD Documentation](https://yardoc.org/)
-- [Rails Guides](https://guides.rubyonrails.org/)
+- [Research-Based Techniques](./research-based-techniques.md) - Advanced prompting strategies
 
 ---
 
-*Remember: AI generates code, but you're the Ruby expert. Always review and validate the output!* 💎
+AI generates code, but you're the Ruby expert. Always review and validate the output.
